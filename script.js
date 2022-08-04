@@ -49,4 +49,18 @@ document.addEventListener("keyup", (e) => {
     }
 })
 
+function insertLetter (pressedKey) {
+    if (nextLetter === 5) {
+        return
+    }
+    pressedKey = pressedKey.toLowerCase()
+
+    let row = document.getElementsByClassName("letter-row")[6 - guessesRemaining]
+    let box = row.children[nextLetter]
+    box.textContent = pressedKey
+    box.classList.add("filled-box")
+    currentGuess.push(pressedKey)
+    nextLetter += 1
+}
+
 initBoard()
